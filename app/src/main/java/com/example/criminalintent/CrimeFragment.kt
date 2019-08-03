@@ -32,9 +32,9 @@ class CrimeFragment : Fragment() {
         button.setEnabled(false)
 
         checkBox = view.findViewById(R.id.crime_solved)
-        checkBox.setOnCheckedChangeListener({ compoundButton: CompoundButton, b: Boolean ->
+        checkBox.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean ->
             crime.isSolved = b;
-        })
+        }
 
         return view
     }
