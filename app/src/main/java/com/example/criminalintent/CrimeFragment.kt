@@ -23,14 +23,8 @@ class CrimeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_crime, container, false)
         titleField = view.findViewById(R.id.crime_title)
         titleField.addTextChangedListener(
-            beforeTextChanged = { charSequence: CharSequence?, i: Int, i1: Int, i2: Int ->
-
-            },
             onTextChanged = { charSequence: CharSequence?, i: Int, i1: Int, i2: Int ->
                 crime.title = charSequence.toString()
-            },
-            afterTextChanged = {
-
             })
 
         button = view.findViewById(R.id.crime_date)
