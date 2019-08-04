@@ -8,7 +8,9 @@
             android:text="@string/crime_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/crime_title"/>
+            android:id="@+id/crime_title"
+            android:drawableRight="@drawable/handcuffs"
+            android:drawablePadding="4dp"/>
     <TextView
             android:text="@string/crime_date"
             android:layout_width="match_parent"
