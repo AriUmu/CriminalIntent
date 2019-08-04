@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,7 +31,22 @@ class CrimeListFragment : Fragment() {
     }
 
     class CrimeHolder(inflater: LayoutInflater, parent: ViewGroup) :
-        RecyclerView.ViewHolder(inflater.inflate(R.layout.list_item_crime, parent, false))
+        RecyclerView.ViewHolder(inflater.inflate(R.layout.list_item_crime, parent, false)) {
+        private var textView: TextView
+        private var dateView: TextView
+        private lateinit var crime: Crime;
+
+        init {
+            textView = itemView.findViewById(R.id.crime_title)
+            dateView = itemView.findViewById(R.id.crime_date)
+        }
+
+        fun bind(crime : Crime){
+            this.crime = crime
+            textView.setText(crime.title)
+            dateView.setText(crime.date.toString())
+        }
+    }
 
 
     class CrimeAdapter(crimes: List<Crime>) : Adapter<CrimeHolder>() {
@@ -42,6 +58,7 @@ class CrimeListFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: CrimeHolder, position: Int) {
+            holder.bind(crimes.get(position))
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CrimeHolder {
