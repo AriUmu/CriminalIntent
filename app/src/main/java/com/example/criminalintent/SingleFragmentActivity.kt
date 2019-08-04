@@ -15,7 +15,7 @@ abstract class SingleFragmentActivity : AppCompatActivity() {
         val fragmentManager = supportFragmentManager
         var fragment = fragmentManager.findFragmentById(R.id.fragment_container)
         if (fragment == null) {
-            fragment = CrimeFragment()
+            fragment = createFragment()
             fragmentManager.beginTransaction()
                 .add(R.id.fragment_container, fragment)
                 .commit()
